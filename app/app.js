@@ -118,6 +118,8 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server is running on port ${PORT}`);
+const HOST = process.env.IP || '::';
+
+app.listen(PORT, HOST, () => {
+    console.log(`Server is running on port ${PORT} at ${HOST}`);
 });
